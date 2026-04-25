@@ -3,8 +3,8 @@ title: Home
 layout: page
 ---
 
-# An Image Recognizer API
-can Classify different situation of roads in Bangladesh <br/>
+# This API
+can recognizes different situation of roads in Bangladesh. <br/>
 
 Road Safety Dataset Categories (Bangladesh) : <br/>
 
