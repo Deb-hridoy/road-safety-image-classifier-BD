@@ -3,7 +3,7 @@ plugins:
 - jekyll-remote-theme
 
 title: Bangladesh Road Safety Classifier
-description: An classification API that recognizes condition of Bangladesh Road.
+Description: An classification API that recognizes condition of Bangladesh Road.
 
 author:
   name: Hridoy Deb Mahin
