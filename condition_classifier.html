@@ -1,5 +1,5 @@
 ---
-title: Bangladesh Road Safety Classifier
+title: Road Safety Classifier
 layout: page
 ---
 
@@ -13,54 +13,27 @@ layout: page
     const resultsDiv = document.getElementById('results');
 
     async function predict(file) {
-        resultsDiv.innerHTML = "<p>Analyzing road condition...</p>";
-
+        resultsDiv.innerHTML = "<p>Analyzing image...</p>";
         try {
-            // ✅ Connect to your Bangladesh API
             const client = await Client.connect("deb34/road_safety");
 
-            // ✅ Call your API
             const result = await client.predict("/road_condition", {
                 image: file,
             });
 
-            // ✅ Your API likely returns a dictionary of probabilities
-            const predictions = result.data;
+            const predictionData = result.data[0];
+            const topLabel = predictionData.label;
+            const topConfidence = (predictionData.confidences[0].confidence * 100).toFixed(1);
 
-            // Convert object → sorted array
-            const sorted = Object.entries(predictions)
-                .sort((a, b) => b[1] - a[1]);
-
-            const topLabel = sorted[0][0];
-            const topConfidence = (sorted[0][1] * 100).toFixed(1);
-
-            // Build table of all predictions
-            let tableHTML = "<table style='margin-top:10px; border-collapse: collapse;'>";
-            sorted.forEach(([label, prob]) => {
-                tableHTML += `
-                    <tr>
-                        <td style="padding:4px 10px;">${label}</td>
-                        <td style="padding:4px 10px;">${(prob * 100).toFixed(1)}%</td>
-                    </tr>
-                `;
-            });
-            tableHTML += "</table>";
-
-            // ✅ Display results
             resultsDiv.innerHTML = `
                 <img src="${URL.createObjectURL(file)}" width="400" style="border-radius: 8px; border: 1px solid #ccc;">
-                
                 <h3 style="text-transform: capitalize; margin-bottom: 5px;">
                     Prediction: ${topLabel}
                 </h3>
-                
                 <p style="color: #555; margin-top: 0;">
                     Confidence: <strong>${topConfidence}%</strong>
                 </p>
-
-                ${tableHTML}
             `;
-
         } catch (error) {
             console.error("Prediction failed:", error);
             resultsDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
