@@ -1,0 +1,75 @@
+---
+title: Bangladesh Road Safety Classifier
+layout: page
+---
+
+<input type="file" id="photo" accept="image/*">
+<div id="results"></div>
+
+<script type="module">
+    import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+
+    const photoInput = document.getElementById('photo');
+    const resultsDiv = document.getElementById('results');
+
+    async function predict(file) {
+        resultsDiv.innerHTML = "<p>Analyzing road condition...</p>";
+
+        try {
+            // ✅ Connect to your Bangladesh API
+            const client = await Client.connect("deb34/road_safety");
+
+            // ✅ Call your API
+            const result = await client.predict("/road_condition", {
+                image: file,
+            });
+
+            // ✅ Your API likely returns a dictionary of probabilities
+            const predictions = result.data;
+
+            // Convert object → sorted array
+            const sorted = Object.entries(predictions)
+                .sort((a, b) => b[1] - a[1]);
+
+            const topLabel = sorted[0][0];
+            const topConfidence = (sorted[0][1] * 100).toFixed(1);
+
+            // Build table of all predictions
+            let tableHTML = "<table style='margin-top:10px; border-collapse: collapse;'>";
+            sorted.forEach(([label, prob]) => {
+                tableHTML += `
+                    <tr>
+                        <td style="padding:4px 10px;">${label}</td>
+                        <td style="padding:4px 10px;">${(prob * 100).toFixed(1)}%</td>
+                    </tr>
+                `;
+            });
+            tableHTML += "</table>";
+
+            // ✅ Display results
+            resultsDiv.innerHTML = `
+                <img src="${URL.createObjectURL(file)}" width="400" style="border-radius: 8px; border: 1px solid #ccc;">
+                
+                <h3 style="text-transform: capitalize; margin-bottom: 5px;">
+                    Prediction: ${topLabel}
+                </h3>
+                
+                <p style="color: #555; margin-top: 0;">
+                    Confidence: <strong>${topConfidence}%</strong>
+                </p>
+
+                ${tableHTML}
+            `;
+
+        } catch (error) {
+            console.error("Prediction failed:", error);
+            resultsDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        }
+    }
+
+    photoInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            predict(e.target.files[0]);
+        }
+    });
+</script>
