@@ -1,8 +1,8 @@
-remote_theme: minimal-mistakes@master
+remote_theme: daviddarnes/alembic@main
 plugins:
 - jekyll-remote-theme
 
-title: Bangladesh Road Safety Image Classifier
+title: Bangladesh Road Safety Classifier
 Description: An classification API that recognizes Bangladesh Road Safety Condition.
 
 Author:
