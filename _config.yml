@@ -2,7 +2,7 @@ remote_theme: daviddarnes/alembic@main
 plugins:
 - jekyll-remote-theme
 
-title: Bangladesh Road Safety Image Classifier
+title: Bangladesh Road Safety Classifier
 description: An classification API that recognizes condition of Bangladesh Road.
 
 author:
