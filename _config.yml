@@ -1,9 +1,9 @@
-remote_theme: minimal-mistakes@master
+remote_theme: daviddarnes/alembic@main
 plugins:
 - jekyll-remote-theme
 
 title: Bangladesh Road Safety Image Classifier
-description: An classification API that recognizes Bangladesh Road Safety Condition.
+description: An classification API that recognizes condition of Bangladesh Road.
 
 author:
   name: Hridoy Deb Mahin
