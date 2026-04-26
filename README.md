@@ -63,7 +63,7 @@ Three architectures were evaluated using fastai's `vision_learner` with fine-tun
 | Recall | 89.52% |
 | F1 Score | 89.13% |
 
-### Model 3 — DenseNet-121 (20 epochs) ✅ Best Model
+### Model 3 — DenseNet-121 (20 epochs) Best Model
 
 | Metric | Score |
 |--------|-------|
