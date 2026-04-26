@@ -30,12 +30,14 @@ While related work exists in Bangladesh (e.g. road damage detection, traffic sig
 - **Train / Validation split:** 80% / 20% (random split, seed=42)
 - **Data collection:** Bing Image Crawler (keyword-based per category)
 - **Data cleaning:** Misclassified and corrupted images were removed using fastai's `ImageClassifierCleaner` before training all models
+
+## Sample Data
 <p align="center">
 
   <img src="test_images/image_2.jpg" width="300"/>
 
 </p>
----
+Figure: Bangladesh Flooded Road
 
 ## Models Trained & Results
 
