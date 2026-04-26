@@ -32,7 +32,7 @@ While related work exists in Bangladesh (e.g. road damage detection, traffic sig
 - **Data cleaning:** Misclassified and corrupted images were removed using fastai's `ImageClassifierCleaner` before training all models
 <p align="center">
 
-  <img src="docs/your-image.png" width="300"/>
+  <img src="test_images/image_2.jpg" width="300"/>
 
 </p>
 ---
