@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore large dataset folders
+Dataset/
+Data_Loader/
+Saved_model/
+
+# Ignore model files (optional)
+Saved_model/
+*.h5
+*.pkl
+*.pt
