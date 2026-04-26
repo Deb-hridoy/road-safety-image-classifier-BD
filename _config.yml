@@ -3,7 +3,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
 
-title: Bangladesh Road Safety Classifier
+title: Classify Bangladesh Road Condition
 description: A classification API that recognizes the condition of Bangladesh Roads.
 
 author:
