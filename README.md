@@ -3,7 +3,7 @@
 ## Overview
 
 This project uses transfer learning with fastai and PyTorch to automatically classify road safety hazards from images captured in Bangladesh. The classifier can identify 9 distinct road safety conditions, helping raise awareness of traffic and infrastructure risks.
-To the best of our knowledge, this is one of the first open-source image classifiers on GitHub that combines multiple Bangladesh-specific road safety hazard categories — including flooded roads, illegal parking, overloaded rickshaws, crowded footpaths, and more — into a single multi-class deep learning model with a live interactive demo.
+To the best of our knowledge, **this is one of the first open-source image classifiers** on GitHub that combines multiple Bangladesh-specific road safety hazard categories — including flooded roads, illegal parking, overloaded rickshaws, crowded footpaths, and more — into a single multi-class deep learning model with a live interactive demo.
 While related work exists in Bangladesh (e.g. road damage detection, traffic sign datasets, and individual vehicle recognition), no publicly available GitHub project has tackled this broader combination of urban road safety hazards under one classifier. This project aims to fill that gap.
 
 ---
